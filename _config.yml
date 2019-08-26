@@ -1,0 +1,14 @@
+title: Dorian Thornton
+email: dorian.wolf@gmail.com
+description: Dorian Thornton is a Product Designer and Developer at Ample Organics
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://dorianthornton.com" 
+facebook_link: https://www.facebook.com/dorian.wolf.thornton
+instagram_link: https://www.instagram.com/dorianwolf
+github_link:  https://www.github.com/dorianwolf
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
