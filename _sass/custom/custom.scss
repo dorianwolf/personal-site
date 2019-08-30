@@ -185,6 +185,15 @@ h2, h3 {
   }
 }
 
+// 
+// ALSO SHIT
+// 
+
+.section--also {
+  background: #232326;
+  color: white;
+}
+
 
 // 
 // THREE COLUMN TEXT
@@ -193,17 +202,62 @@ h2, h3 {
 .section--three-col-text {
   .content--main {
     align-items: center;
+    height: 100%;
   }
   
   .content--text {
-    flex-basis: 25%;
+    flex-basis: 100%;
     flex-direction: column;
+    height: 100%;
     
     .content--heading {
-      align-content: flex-end;
+      display: flex;
+      flex-basis: 50%;
+      flex-direction: column;
+      justify-content: flex-end;
     }
+    
     .content--paragraph {
-      align-content: flex-start;
+      flex-basis: 50%;
+    }
+  }
+}
+
+// 
+// FOOTER
+// 
+
+.section--footer {
+  height: 10rem;
+  min-height: 40vh;
+  margin: 2rem;
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  justify-content: flex-end;
+  transition: color 0.4s;
+  
+  .contents--footer {
+    margin: 1rem 3rem;
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    .content--social-media {
+      margin-bottom: 1rem;
+    }
+    
+    .icon {
+      margin: 0.5rem;
+      
+      a {
+        color: rgba(255,255,255,0.8);
+        font-size: 1.5rem;
+        
+        &:hover {
+          color: rgba(255,255,255,1);
+        }
+      }
     }
   }
 }
