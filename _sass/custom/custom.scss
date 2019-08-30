@@ -1,0 +1,209 @@
+//
+// MAIN SHIT
+//
+
+* {
+  z-index: 10;
+}
+
+html {
+  font-size: 16px;
+}
+
+h1 {
+  font: bold 4rem $family-primary;
+}
+
+h2, h3 {
+  font: 3rem $family-secondary;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  height: 100rem;
+  max-height: 80vh;
+  padding: 2rem;
+}
+
+// 
+// HERO SHIT
+// 
+
+.section--title {
+  margin: 2rem;
+  color: white;
+  
+  .title {
+    font: bold 4rem $family-primary;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .contents--header {
+    order: 1;
+    flex-basis: 10rem;
+  }
+
+  nav.menu.menu--main ul {
+    display: flex;
+    justify-content: flex-end;
+    
+    li.menu-item {
+      color: rgba(255,255,255,0.8);
+      font: bold 0.75rem $family-primary;
+      margin: 0 1rem;
+      padding: 1rem 0 0.25rem;
+      border-bottom: 1px solid rgba(255,255,255,0.8);
+      letter-spacing: 0.125rem;
+      text-transform: uppercase;
+      
+      text-align: center;
+      transition: padding 0.3s, margin 0.3s, color 0.3s, border 0.3s;
+      &:hover {
+        color: $white;
+        border-bottom: 2px solid $white;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 0.5rem;
+        margin-left: 0rem;
+        margin-right: 0rem;
+      }
+    }
+  }
+  .contents--main {
+    margin: 1rem 3rem;
+    order: 2;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-basis: 100%;
+  }
+  
+  &.section--with-menu {
+    justify-content: space-between;
+  }
+}
+
+// 
+// NORMAL CONTENT SHIT
+// 
+
+.section--content {
+  background: #f6f6f8;
+  margin-bottom: 2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  
+  .content {
+    display: flex;
+    margin: 0.5rem;
+  }
+  
+  .subtitle {
+    font: bold 0.8rem $family-primary;
+    color: $grey;
+    text-transform: uppercase;
+    letter-spacing: 0.125rem;
+    
+  }
+  
+  .content--paragraph {
+    max-width: 33rem;
+    margin: 1rem 1rem 1rem 0;
+  }
+  
+  .watermark {
+    position: absolute;
+    bottom: -2rem;
+    left: -1rem;
+    z-index: 1;
+    
+    h4 {
+      color: white;
+      font: bold 8rem $family-primary;
+    }
+  }
+  
+  .content--main {
+    display: flex;
+    justify-content: center;
+    margin: 0 4rem;
+    
+    >.content {
+      margin: 2rem;
+    }
+    
+    .content--paragraphs {
+      flex-direction: row;
+    }
+  }
+}
+
+// 
+// ABOUT SHIT
+// 
+
+.section--img-two-col {
+    
+  .content--image {
+    flex-basis: 33%;
+    order: 1;
+    justify-content: center;
+    padding: 1rem;
+    background: $white;
+  }
+  
+  .content--text {
+    flex-basis: 67%;
+    flex-direction: column;
+    order: 2;
+  } 
+}
+
+// 
+// HIGHIGHT SHIT
+// 
+
+.section--text-img {
+  
+  .content--main {
+    justify-content: center;
+  }
+  
+  .content--text {
+    flex-basis: 50%;
+    flex-direction: column;
+  }
+  
+  .content--image {
+    flex-basis: 33%;
+  }
+}
+
+
+// 
+// THREE COLUMN TEXT
+// 
+
+.section--three-col-text {
+  .content--main {
+    align-items: center;
+  }
+  
+  .content--text {
+    flex-basis: 25%;
+    flex-direction: column;
+    
+    .content--heading {
+      align-content: flex-end;
+    }
+    .content--paragraph {
+      align-content: flex-start;
+    }
+  }
+}
