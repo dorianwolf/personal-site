@@ -1,3 +1,6 @@
+$break-large: 1024px;
+$break-small: 600px;
+
 //
 // MAIN SHIT
 //
@@ -16,6 +19,10 @@ h1 {
 
 h2, h3 {
   font: 3rem $family-secondary;
+  
+  @media screen and (max-width: $break-small) {
+    font-size: 2rem;
+  }
 }
 
 .section {
@@ -224,6 +231,81 @@ h2, h3 {
 }
 
 // 
+// FORM SHIT
+// 
+
+.content--form form {
+  display: flex;
+  flex-direction: column;
+  
+  label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font: bold 0.7rem $family-primary;
+    color: $grey;
+    text-transform: uppercase;
+    letter-spacing: 0.125rem;
+  }
+  
+  .form--input-fields {
+    input, textarea {
+      min-width: 20rem;
+      font-size: 1rem;
+      border-radius: 0;
+      margin-bottom: 1rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      transition: border 0.2s, box-shadow 0.2s;
+      border-left: solid 0.125rem $grey;
+      
+      &:focus {
+        outline: none;
+        border-left-color: $blue;
+        box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+      }
+      
+      &:not([value=""]):not(:focus):invalid {
+        border-left-color: $red;
+      }
+      
+      &:valid {
+        border-left-color: $green;
+      }
+    }
+  }
+  
+  textarea {
+    min-height: 6rem;
+  }
+  
+  .form--submit {
+    text-align: right;
+  }
+  
+  .button {
+    height: 100%;
+    width: 100%;
+    padding: 0.5rem 2rem;
+    font: bold 0.8rem $family-primary;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+    border: 0.125rem solid #AD12B0;
+    background: #AD12B0;
+    color: $white;
+    transition: box-shadow 0.2s;
+    
+    &:hover, &:focus {
+      outline: none;
+      box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+    }
+    
+    &:active {
+      box-shadow: 0.125rem 0.125rem 0.125rem $grey;
+    }
+  }
+}
+
+// 
 // FOOTER
 // 
 
@@ -253,6 +335,7 @@ h2, h3 {
       a {
         color: rgba(255,255,255,0.8);
         font-size: 1.5rem;
+        transition: color 0.3s;
         
         &:hover {
           color: rgba(255,255,255,1);
