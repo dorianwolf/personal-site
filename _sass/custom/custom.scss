@@ -268,10 +268,19 @@ h3 {
   .content--text {
     flex-basis: 50%;
     flex-direction: column;
+    
+    @include for-desktop-down {
+      order: 2;
+    }
   }
   
-  .content--image {
+  .content.content--image {
     flex-basis: 33%;
+    
+    @include for-desktop-down {
+      order: 1;
+      margin-bottom: 2rem;
+    }
   }
 }
 
