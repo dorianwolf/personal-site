@@ -1,8 +1,5 @@
-$break-large: 1024px;
-$break-small: 600px;
-
 //
-// MAIN SHIT
+// MAIN
 //
 
 * {
@@ -14,40 +11,61 @@ html {
 }
 
 h1 {
-  font: bold 4rem $family-primary;
+  font: 800 4rem $family-primary;
+  
+  @include for-desktop-down {
+    font-size: 3rem;
+  }
 }
 
 h2, h3 {
   font: 3rem $family-secondary;
+  margin-bottom: 0.125rem;
   
-  @media screen and (max-width: $break-small) {
+  @include for-desktop-down {
     font-size: 2rem;
   }
+}
+
+h3 {
+  margin-bottom: 0.75rem;
 }
 
 .section {
   display: flex;
   flex-direction: column;
-  height: 100rem;
-  max-height: 80vh;
+  min-height: 80vh;
   padding: 2rem;
 }
 
 // 
-// HERO SHIT
+// HERO
 // 
 
 .section--title {
   margin: 2rem;
   color: white;
+  box-shadow: 0.25rem 0.25rem 0.25rem $grey;
   
   .title {
-    font: bold 4rem $family-primary;
+    font: 800 4rem $family-primary;
     margin-bottom: 0.5rem;
+   
+    @include for-desktop-down {
+      font-size: 3.375rem;
+    }
+    
+    @include for-tablet-landscape-down {
+      font-size: 2.25rem;
+    }
   }
   
   .subtitle {
     font-size: 1.5rem;
+    
+    @include for-desktop-down {
+      font-size: 1rem;
+    }
   }
   
   .contents--header {
@@ -59,9 +77,14 @@ h2, h3 {
     display: flex;
     justify-content: flex-end;
     
+    @include for-tablet-landscape-down {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    
     li.menu-item {
       color: rgba(255,255,255,0.8);
-      font: bold 0.75rem $family-primary;
+      font: 800 0.75rem $family-primary;
       margin: 0 1rem;
       padding: 1rem 0 0.25rem;
       border-bottom: 1px solid rgba(255,255,255,0.8);
@@ -88,6 +111,12 @@ h2, h3 {
     justify-content: center;
     flex-direction: column;
     flex-basis: 100%;
+    flex-grow: 1;
+    
+    @include for-tablet-portrait-down {
+      margin: 0 0 5rem;
+      justify-content: flex-end;
+    }
   }
   
   &.section--with-menu {
@@ -96,7 +125,7 @@ h2, h3 {
 }
 
 // 
-// NORMAL CONTENT SHIT
+// NORMAL CONTENT
 // 
 
 .section--content {
@@ -105,6 +134,11 @@ h2, h3 {
   position: relative;
   display: flex;
   justify-content: center;
+  padding: 8rem 2rem;
+  
+  @include for-tablet-landscape-down {
+    align-items: center;
+  }
   
   .content {
     display: flex;
@@ -112,7 +146,7 @@ h2, h3 {
   }
   
   .subtitle {
-    font: bold 0.8rem $family-primary;
+    font: 800 0.8rem $family-primary;
     color: $grey;
     text-transform: uppercase;
     letter-spacing: 0.125rem;
@@ -121,18 +155,44 @@ h2, h3 {
   
   .content--paragraph {
     max-width: 33rem;
-    margin: 1rem 1rem 1rem 0;
+    margin: 0 1.5rem 0 0;
+    
+    @include for-desktop-down {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .content--image {
+    
+    @include for-desktop-down {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    img {
+      object-fit: contain;
+    }
   }
   
   .watermark {
+    max-width: calc(100vw + 16px);
+    overflow: hidden;
     position: absolute;
     bottom: -2rem;
     left: -1rem;
     z-index: 1;
     
+    @include for-desktop-down {
+      bottom: -1.6rem;
+    }
+    
     h4 {
       color: white;
-      font: bold 8rem $family-primary;
+      font: 800 8rem $family-primary;
+      
+      @include for-desktop-down {
+        font-size: 6rem;
+      }
     }
   }
   
@@ -141,39 +201,62 @@ h2, h3 {
     justify-content: center;
     margin: 0 4rem;
     
+    @include for-tablet-landscape-down {
+      flex-direction: column;
+      max-width: 500px;
+      margin: 0 1rem;
+    }
+    
     >.content {
       margin: 2rem;
+      
+      @include for-desktop-down {
+        margin: 0.5rem;
+      }
     }
     
     .content--paragraphs {
       flex-direction: row;
+      
+      @include for-desktop-down {
+        flex-direction: column;
+      }
     }
   }
 }
 
 // 
-// ABOUT SHIT
+// ABOUT
 // 
 
 .section--img-two-col {
     
-  .content--image {
+  .content.content--image {
     flex-basis: 33%;
     order: 1;
     justify-content: center;
     padding: 1rem;
     background: $white;
+    
+    @include for-desktop-down {
+      flex-basis: 40%;
+      margin-bottom: 3rem;
+    }
   }
   
   .content--text {
     flex-basis: 67%;
     flex-direction: column;
     order: 2;
+    
+    @include for-desktop-down {
+      flex-basis: 60%;
+    }
   } 
 }
 
 // 
-// HIGHIGHT SHIT
+// HIGHIGHT
 // 
 
 .section--text-img {
@@ -193,7 +276,7 @@ h2, h3 {
 }
 
 // 
-// ALSO SHIT
+// ALSO
 // 
 
 .section--also {
@@ -208,7 +291,6 @@ h2, h3 {
 
 .section--three-col-text {
   .content--main {
-    align-items: center;
     height: 100%;
   }
   
@@ -231,17 +313,22 @@ h2, h3 {
 }
 
 // 
-// FORM SHIT
+// FORM
 // 
 
 .content--form form {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  
+  @include for-tablet-landscape-down {
+    
+  }
   
   label {
     display: block;
     margin-bottom: 0.25rem;
-    font: bold 0.7rem $family-primary;
+    font: 800 0.7rem $family-primary;
     color: $grey;
     text-transform: uppercase;
     letter-spacing: 0.125rem;
@@ -250,6 +337,7 @@ h2, h3 {
   .form--input-fields {
     input, textarea {
       min-width: 20rem;
+      width: 100%;
       font-size: 1rem;
       border-radius: 0;
       margin-bottom: 1rem;
@@ -285,12 +373,12 @@ h2, h3 {
   .button {
     height: 100%;
     width: 100%;
-    padding: 0.5rem 2rem;
-    font: bold 0.8rem $family-primary;
+    padding: 1rem 2rem;
+    font: 800 1rem $family-primary;
     letter-spacing: 0.125rem;
     text-transform: uppercase;
-    border: 0.125rem solid #AD12B0;
-    background: #AD12B0;
+    border: 0.125rem solid $pink;
+    background: $pink;
     color: $white;
     transition: box-shadow 0.2s;
     
@@ -317,6 +405,7 @@ h2, h3 {
   text-align: center;
   justify-content: flex-end;
   transition: color 0.4s;
+  box-shadow: 0.25rem 0.25rem 0.25rem $grey;
   
   .contents--footer {
     margin: 1rem 3rem;

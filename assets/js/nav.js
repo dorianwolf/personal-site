@@ -1,106 +1,25 @@
-// document.getElementById('item_one').scrollIntoView({
-//   behavior: 'smooth'
-// });
-
-$(function() {
-
-  // Navbar scrolling animation
-
-  $('#top').on('click', function(e) {
-    e.preventDefault();
-    $('html, body').animate({
-      scrollTop: 0
-    }, 1000);
-    return false;
+document.addEventListener("DOMContentLoaded", () => {
+  
+  var nav_items = document.querySelectorAll('#MainNav a');
+  nav_items.forEach(nav_item => {
+    var href = nav_item.getAttribute("href");
+    nav_item.addEventListener("click", function(e){
+      e.preventDefault();
+      scrollToIt(href)
+    });
+    nav_item.addEventListener("touchstart", function(e){
+      e.preventDefault();
+      scrollToIt(href)
+    });
   });
-  $('#item_one').on('click', function(e) {
-    e.preventDefault();
-    $('html, body').animate({
-      scrollTop: $("#section_item_one").offset().top - 200
-    }, 1000);
-    return false;
-  });
-
-  // // Mobile navbar
-
-  // setTimeout( function() {
-  // 	var container, button, menu, links, subMenus, i, len;
-
-  // 	container = document.getElementById( 'site-navigation' );
-  // 	if ( ! container ) {
-  // 		return;
-  // 	}
-
-  // 	button = container.getElementsByTagName( 'button' )[0];
-  // 	if ( 'undefined' === typeof button ) {
-  // 		return;
-  // 	}
-
-  // 	menu = container.getElementsByTagName( 'ul' )[0];
-
-  // 	// Hide menu toggle button if menu is empty and return early.
-  // 	if ( 'undefined' === typeof menu ) {
-  // 		button.style.display = 'none';
-  // 		return;
-  // 	}
-
-  // 	menu.setAttribute( 'aria-expanded', 'false' );
-  // 	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
-  // 		menu.className += ' nav-menu';
-  // 	}
-
-  // 	button.onclick = function() {
-  // 		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-  // 			container.className = container.className.replace( ' toggled', '' );
-  // 			button.setAttribute( 'aria-expanded', 'false' );
-  // 			menu.setAttribute( 'aria-expanded', 'false' );
-  // 		} else {
-  // 			container.className += ' toggled';
-  // 			button.setAttribute( 'aria-expanded', 'true' );
-  // 			menu.setAttribute( 'aria-expanded', 'true' );
-  // 		}
-  // 	};
-
-  // 	// Get all the link elements within the menu.
-  // 	links    = menu.getElementsByTagName( 'a' );
-  // 	subMenus = menu.getElementsByTagName( 'ul' );
-
-  // 	// Set menu items with submenus to aria-haspopup="true".
-  // 	for ( i = 0, len = subMenus.length; i < len; i++ ) {
-  // 		subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
-  // 	}
-
-  // 	// Each time a menu link is focused or blurred, toggle focus.
-  // 	for ( i = 0, len = links.length; i < len; i++ ) {
-  // 		links[i].addEventListener( 'focus', toggleFocus, true );
-  // 		links[i].addEventListener( 'blur', toggleFocus, true );
-  // 	}
-
-  // }, 2000);
-
-  // /**
-  //  * Sets or removes .focus class on an element.
-  //  */
-  // function toggleFocus() {
-  //   var self = this;
-
-  //   // Move up through the ancestors of the current link until we hit .nav-menu.
-  //   while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-
-  //     // On li elements toggle the class .focus.
-  //     if ( 'li' === self.tagName.toLowerCase() ) {
-  //       if ( -1 !== self.className.indexOf( 'focus' ) ) {
-  //         self.className = self.className.replace( ' focus', '' );
-  //       } else {
-  //         self.className += ' focus';
-  //       }
-  //     }
-
-  //     self = self.parentElement;
-  //   }
-  // }
-
-
+  
+  function scrollToIt(anchor) {
+    document.querySelector(anchor).scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+  
+  
 });
 
 // // Line drawing animation

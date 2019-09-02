@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap');
+@import url("/assets/Inter/inter.css");
 
-$family-primary: Helvetica;
+@mixin for-tablet-portrait-down {
+  @media (max-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-down {
+  @media (max-width: 900px) { @content; }
+}
+@mixin for-desktop-down {
+  @media (max-width: 1200px) { @content; }
+}
+
+$family-primary: "Inter var", "Inter", Sans-Serif;
 $family-secondary: 'Libre Baskerville', Times, Serif;
 
 $title-color: white;
@@ -10,3 +21,8 @@ $subtitle-color: white;
 $grey-dark: #262729;
 $grey: #717171;
 $grey-lighter: #F6F6F8;
+
+$purple: #5518A3;
+$red: #B01217;
+$blue: #1C7BB0;
+$pink: #AD12B0;
