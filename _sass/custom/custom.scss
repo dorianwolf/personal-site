@@ -155,7 +155,7 @@ h3 {
   
   .content--paragraph {
     max-width: 33rem;
-    margin: 0 1.5rem 0 0;
+    margin: 0 1.5rem 1rem 0;
     
     @include for-desktop-down {
       margin-bottom: 1rem;
@@ -268,8 +268,9 @@ h3 {
   .content--text {
     flex-basis: 50%;
     flex-direction: column;
+    min-width: 50%;
     
-    @include for-desktop-down {
+    @include for-tablet-landscape-down {
       order: 2;
     }
   }
@@ -277,7 +278,7 @@ h3 {
   .content.content--image {
     flex-basis: 33%;
     
-    @include for-desktop-down {
+    @include for-tablet-landscape-down {
       order: 1;
       margin-bottom: 2rem;
     }
@@ -301,6 +302,7 @@ h3 {
 .section--three-col-text {
   .content--main {
     height: 100%;
+    flex-direction: column;
   }
   
   .content--text {
@@ -325,79 +327,79 @@ h3 {
 // FORM
 // 
 
-.content--form form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+.content--form {
   
   @include for-tablet-landscape-down {
+    order: 2;    
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 0.25rem;
-    font: 800 0.7rem $family-primary;
-    color: $grey;
-    text-transform: uppercase;
-    letter-spacing: 0.125rem;
-  }
-  
-  .form--input-fields {
-    input, textarea {
-      min-width: 20rem;
-      width: 100%;
-      font-size: 1rem;
-      border-radius: 0;
-      margin-bottom: 1rem;
-      padding: 0.5rem 1rem;
-      border: none;
-      transition: border 0.2s, box-shadow 0.2s;
-      border-left: solid 0.125rem $grey;
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+      font: 800 0.7rem $family-primary;
+      color: $grey;
+      text-transform: uppercase;
+      letter-spacing: 0.125rem;
+    }
+    
+    .form--input-fields {
+      input, textarea {
+        width: 28rem;
+        max-width: 100%;
+        font-size: 1rem;
+        border-radius: 0;
+        margin-bottom: 1rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        transition: border 0.2s, box-shadow 0.2s;
+        border-left: solid 0.125rem $grey;
+        
+        &:focus {
+          outline: none;
+          border-left-color: $blue;
+          box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+        }
+        
+        &:not([value=""]):not(:focus):invalid {
+          border-left-color: $red;
+        }
+        
+        &:valid {
+          border-left-color: $green;
+        }
+      }
+    }
+    
+    textarea {
+      min-height: 6rem;
+    }
+    
+    .button {
+      height: 100%;
+      width: 28rem;
+      max-width: 100%;
+      padding: 1rem 2rem;
+      font: 800 1rem $family-primary;
+      letter-spacing: 0.125rem;
+      text-transform: uppercase;
+      border: 0.125rem solid $pink;
+      background: $pink;
+      color: $white;
+      transition: box-shadow 0.2s;
       
-      &:focus {
+      &:hover, &:focus {
         outline: none;
-        border-left-color: $blue;
         box-shadow: 0.25rem 0.25rem 0.25rem $grey;
       }
       
-      &:not([value=""]):not(:focus):invalid {
-        border-left-color: $red;
+      &:active {
+        box-shadow: 0.125rem 0.125rem 0.125rem $grey;
       }
-      
-      &:valid {
-        border-left-color: $green;
-      }
-    }
-  }
-  
-  textarea {
-    min-height: 6rem;
-  }
-  
-  .form--submit {
-    text-align: right;
-  }
-  
-  .button {
-    height: 100%;
-    width: 100%;
-    padding: 1rem 2rem;
-    font: 800 1rem $family-primary;
-    letter-spacing: 0.125rem;
-    text-transform: uppercase;
-    border: 0.125rem solid $pink;
-    background: $pink;
-    color: $white;
-    transition: box-shadow 0.2s;
-    
-    &:hover, &:focus {
-      outline: none;
-      box-shadow: 0.25rem 0.25rem 0.25rem $grey;
-    }
-    
-    &:active {
-      box-shadow: 0.125rem 0.125rem 0.125rem $grey;
     }
   }
 }
