@@ -4,6 +4,7 @@
 
 * {
   z-index: 10;
+  word-break: break-word;
 }
 
 html {
@@ -36,6 +37,10 @@ h3 {
   flex-direction: column;
   min-height: 80vh;
   padding: 2rem;
+  
+  @include for-tablet-portrait-down {
+    padding: 1rem;
+  }
 }
 
 // 
@@ -46,6 +51,10 @@ h3 {
   margin: 2rem;
   color: white;
   box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+  
+  @include for-tablet-portrait-down {
+    margin: 1rem;
+  }
   
   .title {
     font: 800 4rem $family-primary;
@@ -114,7 +123,7 @@ h3 {
     flex-grow: 1;
     
     @include for-tablet-portrait-down {
-      margin: 0 0 5rem;
+      margin: 0 0 3rem;
       justify-content: flex-end;
     }
   }
@@ -138,6 +147,7 @@ h3 {
   
   @include for-tablet-landscape-down {
     align-items: center;
+    padding: 4rem 2rem;
   }
   
   .content {
@@ -172,6 +182,10 @@ h3 {
     img {
       object-fit: contain;
     }
+    
+    @include for-tablet-landscape-down {
+      max-height: 50vh;
+    }
   }
   
   .watermark {
@@ -189,6 +203,7 @@ h3 {
     h4 {
       color: white;
       font: 800 8rem $family-primary;
+      word-break: initial;
       
       @include for-desktop-down {
         font-size: 6rem;
@@ -200,11 +215,16 @@ h3 {
     display: flex;
     justify-content: center;
     margin: 0 4rem;
+    max-width: 100%;
     
     @include for-tablet-landscape-down {
       flex-direction: column;
       max-width: 500px;
       margin: 0 1rem;
+    }
+    
+    @include for-tablet-portrait-down {
+      max-width: 100%;
     }
     
     >.content {
@@ -417,6 +437,10 @@ h3 {
   justify-content: flex-end;
   transition: color 0.4s;
   box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+  
+  @include for-tablet-portrait-down {
+    margin: 1rem;
+  }
   
   .contents--footer {
     margin: 1rem 3rem;
