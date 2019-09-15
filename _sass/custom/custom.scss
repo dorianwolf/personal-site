@@ -181,6 +181,11 @@ h3 {
     
     img {
       object-fit: contain;
+      filter: 
+        drop-shadow(0 -1rem 0 $white)
+        drop-shadow(0 1rem 0 $white)
+        drop-shadow(-1rem 0 0 $white)
+        drop-shadow(1rem 0 0 $white);
     }
     
     @include for-tablet-landscape-down {
@@ -255,12 +260,10 @@ h3 {
     flex-basis: 33%;
     order: 1;
     justify-content: center;
-    padding: 1rem;
-    background: $white;
     
     @include for-desktop-down {
       flex-basis: 40%;
-      margin-bottom: 3rem;
+      margin: 2rem;
     }
   }
   
@@ -271,6 +274,7 @@ h3 {
     
     @include for-desktop-down {
       flex-basis: 60%;
+      margin: 2rem;
     }
   } 
 }
