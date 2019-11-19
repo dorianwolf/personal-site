@@ -171,9 +171,9 @@
       <form action="https://formspree.io/dorian.wolf@gmail.com" method="POST">
         <div class="form--input-fields">
           <label for="email">Email Address</label>
-          <input type="email" class="input" onkeyup="this.setAttribute('value', this.value);" value="" required>
+          <input type="email" name="email" class="input" onkeyup="this.setAttribute('value', this.value);" value="" required>
           <label for="message">Message</label>
-          <textarea class="textarea" onkeyup="this.setAttribute('value', this.value);" value="" required></textarea>
+          <textarea class="textarea" type="message" name="message" onkeyup="this.setAttribute('value', this.value);" value="" required></textarea>
         </div>
         <div class="form--submit">
           <input type="submit" class="button" value="Send">
