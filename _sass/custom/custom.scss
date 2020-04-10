@@ -359,6 +359,10 @@ a {
 // FORM
 // 
 
+#contactForm {
+  display: block;
+}
+
 .content--form {
   
   @include for-tablet-landscape-down {
@@ -379,31 +383,30 @@ a {
       letter-spacing: 0.125rem;
     }
     
-    .form--input-fields {
-      input, textarea {
-        width: 28rem;
-        max-width: 100%;
-        font-size: 1rem;
-        border-radius: 0;
-        margin-bottom: 1rem;
-        padding: 0.5rem 1rem;
-        border: none;
-        transition: border 0.2s, box-shadow 0.2s;
-        border-left: solid 0.125rem $grey;
-        
-        &:focus {
-          outline: none;
-          border-left-color: $blue;
-          box-shadow: 0.25rem 0.25rem 0.25rem $grey;
-        }
-        
-        &:not([value=""]):not(:focus):invalid {
-          border-left-color: $red;
-        }
-        
-        &:valid {
-          border-left-color: $green;
-        }
+    input, textarea {
+      width: 28rem;
+      max-width: 100%;
+      font-size: 1rem;
+      border-radius: 0;
+      margin-bottom: 1rem;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      transition: border 0.2s, box-shadow 0.2s;
+      border-left: solid 0.125rem $grey;
+      
+      &:focus {
+        outline: none;
+        border-left-color: $blue;
+        box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+      }
+      
+      &:not([value=""]):not(:focus):invalid {
+        border-left-color: $red;
+      }
+      
+      &:valid {
+        border-left-color: $green;
       }
     }
     
@@ -411,7 +414,7 @@ a {
       min-height: 6rem;
     }
     
-    .button {
+    button {
       height: 100%;
       width: 28rem;
       max-width: 100%;
@@ -422,18 +425,41 @@ a {
       border: 0.125rem solid $pink;
       background: $pink;
       color: $white;
-      transition: box-shadow 0.2s;
+      transition: box-shadow 0.2s, background 0.2s, border-color 0.2s;
       
-      &:hover, &:focus {
-        outline: none;
-        cursor: pointer;
-        box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+      &.loading {
+        background: $grey;
+        border-color: $grey;
       }
       
-      &:active {
-        box-shadow: 0.125rem 0.125rem 0.125rem $grey;
+      &.sent {
+        background: $green;
+        border-color: $green;
+      }
+      
+      &:not(:disabled) {
+        &:hover, &:focus {
+          outline: none;
+          box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+        }
+        
+        &:active {
+          box-shadow: 0.125rem 0.125rem 0.125rem $grey;
+        }
       }
     }
+  }
+}
+
+#contactFormResponse {
+  margin: 1rem auto;
+  font-size: 0.75rem;
+  
+  .fail {
+    color: $red;
+  }
+  .success {
+    color: $green;
   }
 }
 

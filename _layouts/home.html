@@ -176,18 +176,15 @@
         <p>I tend to write back quickly.</p>
       </div>
     </div>
-    <div class="content content--form">
-      <form action="https://formspree.io/dorian.wolf@gmail.com" method="POST">
-        <div class="form--input-fields">
-          <label for="email">Email Address</label>
-          <input type="email" name="email" class="input" onkeyup="this.setAttribute('value', this.value);" value="" required>
-          <label for="message">Message</label>
-          <textarea class="textarea" type="message" name="message" onkeyup="this.setAttribute('value', this.value);" value="" required></textarea>
-        </div>
-        <div class="form--submit">
-          <input type="submit" class="button" value="Send">
-        </div>
+    <div id="contactForm" class="content content--form">
+      <form action="https://f53itdfudi.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer" method="POST">
+        <label for="email">Email Address<input type="email" name="reply_to" class="input" onkeyup="this.setAttribute('value', this.value);" value="" required></label>
+        <label for="message">Message<textarea class="textarea" type="message" name="message" onkeyup="this.setAttribute('value', this.value);" value="" required></textarea></label>
+        <button type="submit">Send</button>
       </form>
+      <div id="contactFormResponse">
+        <p></p>
+      </div>
     </div>
   </main>
   <footer class="watermark">
