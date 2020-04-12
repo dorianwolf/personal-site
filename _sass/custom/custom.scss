@@ -45,7 +45,7 @@ a {
 .section {
   display: flex;
   flex-direction: column;
-  min-height: 80vh;
+  min-height: calc(80vh - 5.5rem);
   padding: 2rem;
   
   @include for-tablet-portrait-down {
@@ -61,11 +61,61 @@ a {
 // HERO
 // 
 
+section.stickynav {
+  position: fixed;
+  z-index: 10;
+  left:0;
+  right:0;
+  top:0;
+  z-index: 13;
+  color: white;
+  min-height: 0;
+  
+  nav.menu.menu--main ul {
+    display: flex;
+    justify-content: flex-end;
+    
+    @include for-tablet-landscape-down {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    
+    li.menu-item {
+      color: rgba(255,255,255,0.8);
+      font: 800 0.75rem $family-primary;
+      margin: 0 1rem;
+      padding: 0.25rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.8);
+      letter-spacing: 0.125rem;
+      text-transform: uppercase;
+      
+      text-align: center;
+      transition: padding 0.3s, margin 0.3s, color 0.3s, border 0.3s;
+      &:hover {
+        color: $white;
+        border-bottom: 2px solid $white;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 0.5rem;
+        margin-left: 0rem;
+        margin-right: 0rem;
+      }
+    }
+  }
+}
+
+section.sticky--bg {
+  position: sticky;
+  top: 0;
+  z-index: 12;
+  height: 5.5rem;
+  box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+}
+
 .section--title {
   position: relative;
-  margin: 2rem;
   color: white;
-  box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+  z-index: 12;
   
   @include for-tablet-portrait-down {
     margin: 1rem;
@@ -97,37 +147,6 @@ a {
     flex-basis: 10rem;
   }
 
-  nav.menu.menu--main ul {
-    display: flex;
-    justify-content: flex-end;
-    
-    @include for-tablet-landscape-down {
-      flex-direction: column;
-      align-items: flex-end;
-    }
-    
-    li.menu-item {
-      color: rgba(255,255,255,0.8);
-      font: 800 0.75rem $family-primary;
-      margin: 0 1rem;
-      padding: 1rem 0 0.25rem;
-      border-bottom: 1px solid rgba(255,255,255,0.8);
-      letter-spacing: 0.125rem;
-      text-transform: uppercase;
-      
-      text-align: center;
-      transition: padding 0.3s, margin 0.3s, color 0.3s, border 0.3s;
-      &:hover {
-        color: $white;
-        border-bottom: 2px solid $white;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-bottom: 0.5rem;
-        margin-left: 0rem;
-        margin-right: 0rem;
-      }
-    }
-  }
   .contents--main {
     margin: 1rem 3rem;
     order: 2;
@@ -143,14 +162,10 @@ a {
     }
   }
   
-  &.section--with-menu {
-    justify-content: space-between;
-  }
-  
   #scrollDown {
     position: absolute;
     left: calc(50% - 12px);
-    bottom: 2rem;
+    bottom: 0rem;
     opacity: 1;
     transition: opacity 2.25s, transform 0.75s, width 0.75s;
     width: 1.5rem;
@@ -177,7 +192,7 @@ a {
 
 .section--content {
   background: #f6f6f8;
-  margin-bottom: 2rem;
+  margin: 2rem;
   position: relative;
   display: flex;
   justify-content: center;
@@ -236,7 +251,7 @@ a {
     overflow: hidden;
     position: absolute;
     bottom: -2rem;
-    left: -1rem;
+    left: -2rem;
     z-index: 1;
     
     @include for-desktop-down {
