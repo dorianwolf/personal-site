@@ -1,5 +1,21 @@
 <nav id="MainNav" class="menu navbar menu--main" role="navigation" aria-label="main navigation">
-  <ul>
+  <ul class="nav--links__portrait">
+    <li class="icon--menu"><button type="button" name="button" class="button"><img src="{{'/assets/images/menu.svg' | relative_url}}" alt="menu toggle"></button></li>
+    <li class="icon--close inactive"><button type="button" name="button" class="button"><img src="{{'/assets/images/close.svg' | relative_url}}" alt="close menu"></button></li>
+    <a href="#About" class="hidden">
+      <li class="menu-item">About</li>
+    </a>
+    <a href="#Projects" class="hidden">
+      <li class="menu-item">Selected Projects</li>
+    </a>
+    <a href="#Experience" class="hidden">
+      <li class="menu-item">Work Experience</li>
+    </a>
+    <a href="#Contact" class="hidden">
+      <li class="menu-item">Contact</li>
+    </a>
+  </ul>
+  <ul class="nav--links__landscape">
     <a href="#About">
       <li class="menu-item">About</li>
     </a>

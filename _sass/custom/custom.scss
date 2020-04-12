@@ -57,6 +57,10 @@ a {
   opacity: 0;
 }
 
+.inactive {
+  display: none;
+}
+
 // 
 // HERO
 // 
@@ -72,13 +76,35 @@ section.stickynav {
   min-height: 0;
   
   nav.menu.menu--main ul {
-    display: flex;
     justify-content: flex-end;
+    
+    .button {
+      background: none;
+      border: none;
+    }
+    
+    &.nav--links__portrait {
+      display: none;
+    }
+    &.nav--links__landscape {
+      display: flex;
+    }
+    
+    
     
     @include for-tablet-landscape-down {
       flex-direction: column;
       align-items: flex-end;
+      
+      &.nav--links__portrait {
+        display: flex;
+      }
+      &.nav--links__landscape {
+        display: none;
+      }
     }
+      
+      
     
     li.menu-item {
       color: rgba(255,255,255,0.8);
@@ -88,9 +114,9 @@ section.stickynav {
       border-bottom: 1px solid rgba(255,255,255,0.8);
       letter-spacing: 0.125rem;
       text-transform: uppercase;
-      
       text-align: center;
       transition: padding 0.3s, margin 0.3s, color 0.3s, border 0.3s;
+      
       &:hover {
         color: $white;
         border-bottom: 2px solid $white;
@@ -99,6 +125,10 @@ section.stickynav {
         padding-bottom: 0.5rem;
         margin-left: 0rem;
         margin-right: 0rem;
+      }
+      
+      @include for-tablet-landscape-down {
+        margin-top: 1rem;
       }
     }
   }
@@ -110,16 +140,21 @@ section.sticky--bg {
   z-index: 12;
   height: 5.5rem;
   box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+  transition: opacity 0.5s, height 0.6s;
+  
+  @include for-tablet-portrait-down {
+    height: 3.5rem;
+  }
+  
+  &.expanded {
+    height: 100vh;
+  }
 }
 
 .section--title {
   position: relative;
   color: white;
   z-index: 12;
-  
-  @include for-tablet-portrait-down {
-    margin: 1rem;
-  }
   
   .title {
     font: 800 4rem $family-primary;

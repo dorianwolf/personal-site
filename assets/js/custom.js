@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     FADE-IN
 */
 
-var fade_ins = document.querySelectorAll('.hidden');
+var fade_ins = document.querySelectorAll('.fadein');
 fade_ins.forEach(element => {
   var element_classes = element.classList["value"];
   if (element_classes.includes("fade1")) {
@@ -52,6 +52,47 @@ fade_ins.forEach(element => {
   function scrollToIt(anchor) {
     document.querySelector(anchor).scrollIntoView({
       behavior: 'smooth'
+    });
+  }
+  
+/*
+    MOBILE NAV
+*/
+  var menu_button = document.querySelector('#MainNav .icon--menu');
+  var close_button = document.querySelector('#MainNav .icon--close');
+  var mobile_nav_links = document.querySelectorAll('#MainNav .nav--links__portrait a');
+  var nav_bg = document.querySelectorAll('.sticky--bg');
+  
+  [menu_button, close_button].forEach((element) => {
+    element.addEventListener("touchstart", function(e){
+      e.preventDefault();
+      toggle_mobile_icons();
+    });
+    element.addEventListener("click", function(e){
+      e.preventDefault();
+      toggle_mobile_icons();
+    })
+  });
+  mobile_nav_links.forEach((link) => {
+    link.addEventListener("touchstart", function(e){
+      e.preventDefault();
+      toggle_mobile_icons();
+    });
+    link.addEventListener("click", function(e){
+      e.preventDefault();
+      toggle_mobile_icons();
+    })
+  });
+  
+  function toggle_mobile_icons() {
+    [menu_button, close_button].forEach((element) => {
+      element.classList.toggle("inactive");
+    });
+    mobile_nav_links.forEach((link) => {
+      link.classList.toggle("hidden");
+    });
+    nav_bg.forEach((bg) => {
+      bg.classList.toggle("expanded");
     });
   }
   
