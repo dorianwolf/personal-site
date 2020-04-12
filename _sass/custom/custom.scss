@@ -5,6 +5,8 @@
 * {
   z-index: 10;
   word-break: break-word;
+  opacity: 1;
+  transition: opacity 1.5s;
 }
 
 html {
@@ -51,11 +53,16 @@ a {
   }
 }
 
+.hidden {
+  opacity: 0;
+}
+
 // 
 // HERO
 // 
 
 .section--title {
+  position: relative;
   margin: 2rem;
   color: white;
   box-shadow: 0.25rem 0.25rem 0.25rem $grey;
@@ -138,6 +145,29 @@ a {
   
   &.section--with-menu {
     justify-content: space-between;
+  }
+  
+  #scrollDown {
+    position: absolute;
+    left: calc(50% - 12px);
+    bottom: 2rem;
+    opacity: 1;
+    transition: opacity 2.25s, transform 0.75s, width 0.75s;
+    width: 1.5rem;
+    
+    img {
+      width: 100%;
+    }
+    
+    &.hidden {
+      opacity: 0;
+      transform: translate(0, -1.5rem);
+    }
+    
+    &:hover {
+      transform: translate(-0.25rem, 0.25rem);
+      width: 2rem;
+    }
   }
 }
 

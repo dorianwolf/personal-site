@@ -1,5 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+/*
+    FADE-IN
+*/
+
+var fade_ins = document.querySelectorAll('.hidden');
+fade_ins.forEach(element => {
+  var element_classes = element.classList["value"];
+  if (element_classes.includes("fade1")) {
+    reveal(element, 500);
+  } else if (element_classes.includes("fade2")) {
+    reveal(element, 1000);
+  } else {
+    reveal(element, 0);
+  }
   
+  function reveal(element, time) {
+    setTimeout(function() {
+      element.classList.remove('hidden');
+    }, time);
+  }
+});
 /*
     NAVIGATION
 */
@@ -15,6 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       scrollToIt(href)
     });
+  });
+  
+  var scroll_down = document.querySelector("#scrollDown");
+  var scroll_down_href = scroll_down.getAttribute("href");
+  scroll_down.addEventListener("click", function(e){
+    e.preventDefault();
+    scrollToIt(scroll_down_href)
+  });
+  scroll_down.addEventListener("touchstart", function(e){
+    e.preventDefault();
+    scrollToIt(scroll_down_href)
   });
   
   function scrollToIt(anchor) {
