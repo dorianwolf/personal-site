@@ -65,6 +65,20 @@ a {
 // HERO
 // 
 
+.contents--header {
+  order: 1;
+  flex-basis: 10rem;
+  
+  // header {
+  //   display: flex;
+  //   justify-content: space-between;
+  // 
+  //   h2 {
+  //     font: 800 1.5rem $family-primary;
+  //   }
+  // }
+}
+
 section.stickynav {
   position: fixed;
   z-index: 10;
@@ -77,6 +91,16 @@ section.stickynav {
   
   nav.menu.menu--main ul {
     justify-content: flex-end;
+    
+    a {
+      overflow: hidden;
+      height: 40px;
+      transition: opacity 1.5s, height 0.5s;
+      
+      &.hidden {
+        height: 0;
+      }
+    }
     
     .button {
       background: none;
@@ -103,11 +127,9 @@ section.stickynav {
         display: none;
       }
     }
-      
-      
     
     li.menu-item {
-      color: rgba(255,255,255,0.8);
+      color: $white;
       font: 800 0.75rem $family-primary;
       margin: 0 1rem;
       padding: 0.25rem 0;
@@ -118,7 +140,6 @@ section.stickynav {
       transition: padding 0.3s, margin 0.3s, color 0.3s, border 0.3s;
       
       &:hover {
-        color: $white;
         border-bottom: 2px solid $white;
         padding-left: 1rem;
         padding-right: 1rem;
@@ -139,7 +160,7 @@ section.sticky--bg {
   top: 0;
   z-index: 12;
   height: 5.5rem;
-  box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+  box-shadow: 0rem 0.25rem 0.25rem rgba(0,0,0,0.2);
   transition: opacity 0.5s, height 0.6s;
   
   @include for-tablet-portrait-down {
@@ -175,11 +196,6 @@ section.sticky--bg {
     @include for-desktop-down {
       font-size: 1rem;
     }
-  }
-  
-  .contents--header {
-    order: 1;
-    flex-basis: 10rem;
   }
 
   .contents--main {
@@ -478,7 +494,7 @@ section.sticky--bg {
       &:focus {
         outline: none;
         border-left-color: $blue;
-        box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+        box-shadow: 0rem 0.25rem 0.25rem rgba(0,0,0,0.4);
       }
       
       &:not([value=""]):not(:focus):invalid {
@@ -520,11 +536,11 @@ section.sticky--bg {
       &:not(:disabled) {
         &:hover, &:focus {
           outline: none;
-          box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+          box-shadow: 0rem 0.25rem 0.25rem rgba(0,0,0,0.4);
         }
         
         &:active {
-          box-shadow: 0.125rem 0.125rem 0.125rem $grey;
+          box-shadow: 05rem 0.125rem 0.125rem rgba(0,0,0,0.4);
         }
       }
     }
@@ -555,7 +571,7 @@ section.sticky--bg {
   text-align: center;
   justify-content: flex-end;
   transition: color 0.4s;
-  box-shadow: 0.25rem 0.25rem 0.25rem $grey;
+  box-shadow: 0rem 0.25rem 0.25rem rgba(0,0,0,0.4);
   
   @include for-tablet-portrait-down {
     margin: 1rem;
@@ -581,7 +597,7 @@ section.sticky--bg {
         transition: color 0.3s;
         
         &:hover {
-          color: rgba(255,255,255,1);
+          color: $white;
         }
       }
     }
