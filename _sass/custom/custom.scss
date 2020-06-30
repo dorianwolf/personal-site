@@ -22,7 +22,7 @@ h1 {
 }
 
 h2, h3 {
-  font: 3rem $family-secondary;
+  font: 2.3rem $family-secondary;
   margin-bottom: 0.125rem;
   
   @include for-desktop-down {
@@ -469,6 +469,7 @@ section.sticky--bg {
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: 30rem;
     
     label {
       display: block;
@@ -518,8 +519,8 @@ section.sticky--bg {
       font: 800 1rem $family-primary;
       letter-spacing: 0.125rem;
       text-transform: uppercase;
-      border: 0.125rem solid $pink;
-      background: $pink;
+      border: 0.125rem solid #232326;
+      background: #232326;
       color: $white;
       transition: box-shadow 0.2s, background 0.2s, border-color 0.2s;
       

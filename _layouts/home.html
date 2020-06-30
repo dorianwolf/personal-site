@@ -9,14 +9,14 @@
     </header>
   </div>
 </section>
-<section class="section section--title" style="background: #8f0ced;">
+<section class="section section--title" style="background: #232326;">
   <main class="contents contents--main">
     <h1 class="title fadein hidden">Hello, I'm Dorian.</h1>
     <h3 class="subtitle fadein hidden fade1">I am a product designer and web developer.</h3>
   </main>
   <a href="#About" id="scrollDown" class="fadein hidden fade2"><img src="{{'/assets/images/chevron-down.svg' | relative_url}}" alt="scroll down"></a>
 </section>
-<section class="sticky--bg" style="background: #8f0ced;"><br></section>
+<section class="sticky--bg" style="background: #232326;"><br></section>
 
 <section id="About" class="section section--content section--img-two-col">
   <main class="content content--main">
@@ -40,12 +40,12 @@
   </footer>
 </section>
 
-<section id="Projects" class="section section--title" style="background: #ee3124;">
+<section id="Projects" class="section section--title" style="background: #232326;">
   <main class="contents contents--main">
     <h2 class="title">Selected Projects</h2>
   </main>
 </section>
-<section class="sticky--bg" style="background: #ee3124;"><br></section>
+<section class="sticky--bg" style="background: #232326;"><br></section>
 
 <section class="section section--content section--text-img">
   <main class="content content--main">
@@ -91,12 +91,12 @@
   </footer>
 </section>
 
-<section id="Experience" class="section section--title" style="background: #fb6330;">
+<section id="Experience" class="section section--title" style="background: #232326;">
   <main class="contents contents--main">
     <h2 class="title">Work Experience</h2>
   </main>
 </section>
-<section class="sticky--bg" style="background: #fb6330;"><br></section>
+<section class="sticky--bg" style="background: #232326;"><br></section>
 
 <section class="section section--content section--three-col-text">
   <main class="content content--main">
@@ -166,12 +166,12 @@
   </footer>
 </section>
 
-<section id="Contact" class="section section--title" style="background: #0c83ed;">
+<section id="Contact" class="section section--title" style="background: #232326;">
   <main class="contents contents--main">
     <h2 class="title">Contact</h2>
   </main>
 </section>
-<section class="sticky--bg" style="background: #0c83ed;"><br></section>
+<section class="sticky--bg" style="background: #232326;"><br></section>
 
 <section class="section section--content section--text-img">
   <main class="content content--main">
@@ -184,9 +184,9 @@
       </div>
     </div>
     <div id="contactForm" class="content content--form">
-      <form action="https://f53itdfudi.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer" method="POST">
-        <label for="email">Email Address<input type="email" name="reply_to" class="input" onkeyup="this.setAttribute('value', this.value);" value="" required></label>
-        <label for="message">Message<textarea class="textarea" type="message" name="message" onkeyup="this.setAttribute('value', this.value);" value="" required></textarea></label>
+      <form action="https://formspree.io/dorian.wolf@gmail.com" method="POST">
+        <label for="email">Email Address<input type="email" name="_replyto" class="input" onkeyup="this.setAttribute('value', this.value);" value="" required></label>
+        <label for="message">Message<textarea class="textarea" type="_message" name="message" onkeyup="this.setAttribute('value', this.value);" value="" required></textarea></label>
         <button type="submit">Send</button>
       </form>
       <div id="contactFormResponse">
